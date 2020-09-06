@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top UFC fighters</title>
+</head>
+<body>
+    <ol>
+        <li th:each="name : ${names}">
+            <a th:href="'http://localhost:8080/fighter/' + ${name}" th:text="${name}">No names displayed</a>
+        </li>
+    </ol>
+</body>
+</html>
