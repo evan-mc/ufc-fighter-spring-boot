@@ -22,6 +22,6 @@ public class FighterController
     @GetMapping("/fighter/{name}")
     public String getFighter(@PathVariable String name)
     {
-        return fighterService.fighterExists(name) ? "testPage" : "invalidFighter";
+        return fighterService.fighterExists(name) ? ("/fighters/" + name) : "invalidFighter";
     }
 }

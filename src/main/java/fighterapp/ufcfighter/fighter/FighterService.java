@@ -24,9 +24,12 @@ public class FighterService
         //move this to getFighterNames() once full app is done
         names = new ArrayList<>();
         //using this to test data so I dont have to wait a minute to build
-        for(int i = 1; i <= 10; ++i)
+        File file = new File("C:\\Folder of stuff\\Computer science stuff\\my stuff\\spring-apps\\ufcfighter\\src\\main\\resources\\topten.txt");
+        Scanner scanner = new Scanner(file);
+        while(scanner.hasNext())
         {
-            names.add("fighter" + i);
+            String name = scanner.next();
+            names.add(name.substring(32).replaceAll("[0-9\\-]", ""));
         }
 
         /*fighters = new ArrayList<>(10);
