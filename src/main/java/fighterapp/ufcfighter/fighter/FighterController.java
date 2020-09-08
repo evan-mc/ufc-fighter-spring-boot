@@ -20,8 +20,18 @@ public class FighterController
     }
 
     @GetMapping("/fighter/{name}")
-    public String getFighter(@PathVariable String name)
+    public String getFighter(@PathVariable String name, Model model)
     {
-        return fighterService.fighterExists(name) ? ("/fighters/" + name) : "invalidFighter";
+        if(fighterService.fighterExists(name))
+        {
+            model.addAttribute("fighterWins", fighterService.getFighter(name).getWins());
+            model.addAttribute("fighterLosses", fighterService.getFighter(name).getLosses());
+            model.addAttribute("fighterNoContest", fighterService.getFighter(name).getNc());
+            return ("/fighters/" + name);
+        }
+        else
+        {
+            return "invalidFighter";
+        }
     }
 }
